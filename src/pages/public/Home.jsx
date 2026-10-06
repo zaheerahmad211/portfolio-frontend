@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import api, { BACKEND_URL } from '../../utils/api';
+import api, { resolveImageUrl } from '../../utils/api';
 import toast from 'react-hot-toast';
 import { motion } from 'framer-motion';
 
@@ -63,7 +63,7 @@ export default function Home() {
             className="w-48 h-48 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-blue-500 shadow-2xl shrink-0 bg-slate-800"
           >
             <img 
-              src={settings.profileImage ? `${BACKEND_URL}${settings.profileImage}` : "https://ui-avatars.com/api/?name=Zaheer+Ahmed&size=512&background=2563eb&color=fff&bold=true"} 
+              src={settings.profileImage ? resolveImageUrl(settings.profileImage) : "https://ui-avatars.com/api/?name=Zaheer+Ahmed&size=512&background=2563eb&color=fff&bold=true"} 
               alt="Zaheer Ahmed Profile" 
               className="w-full h-full object-cover" 
             />
@@ -168,7 +168,7 @@ export default function Home() {
                 className="bg-white px-6 py-3.5 rounded-xl shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] border border-slate-200 hover:border-blue-400 hover:shadow-[0_4px_15px_-3px_rgba(6,81,237,0.2)] hover:-translate-y-1 transition-all font-semibold text-slate-700 flex items-center gap-3 cursor-default"
               >
                 {skill.icon ? (
-                  <img src={`${BACKEND_URL}${skill.icon}`} alt={skill.name} className="w-6 h-6 object-contain" />
+                  <img src={resolveImageUrl(skill.icon)} alt={skill.name} className="w-6 h-6 object-contain" />
                 ) : (
                   <span className="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
                 )}
@@ -208,7 +208,7 @@ export default function Home() {
                 <div className="h-64 bg-slate-100 overflow-hidden relative">
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
                   {p.image ? (
-                    <img src={BACKEND_URL+p.image} alt={p.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                    <img src={resolveImageUrl(p.image)} alt={p.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-slate-400 font-medium">
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2-2v12a2 2 0 002 2z" /></svg>
@@ -349,7 +349,7 @@ export default function Home() {
                     </a>
                   )}
                   {c.certificateUrl && (
-                    <a href={`${BACKEND_URL}${c.certificateUrl}`} download target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-slate-700 font-semibold text-sm hover:text-white hover:bg-slate-900 transition-all bg-white px-4 py-2 rounded-xl border border-slate-200 shadow-sm hover:shadow-md ml-auto">
+                    <a href={resolveImageUrl(c.certificateUrl)} download target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-slate-700 font-semibold text-sm hover:text-white hover:bg-slate-900 transition-all bg-white px-4 py-2 rounded-xl border border-slate-200 shadow-sm hover:shadow-md ml-auto">
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                       PDF
                     </a>
