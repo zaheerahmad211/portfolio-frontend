@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import api from '../../utils/api';
+import api, { BACKEND_URL } from '../../utils/api';
 import toast from 'react-hot-toast';
 import { Edit2, Trash2 } from 'lucide-react';
 
@@ -84,7 +84,7 @@ export default function ManageSkills() {
               <input type="file" onChange={handleFileChange} className="w-full border border-slate-300 p-2 rounded-lg" />
               {formData.icon && (
                 <div className="mt-3 flex items-center gap-3 bg-slate-50 p-2 rounded border border-slate-100">
-                  <img src={`http://localhost:5000${formData.icon}`} alt="preview" className="w-8 h-8 object-contain" />
+                  <img src={`${BACKEND_URL}${formData.icon}`} alt="preview" className="w-8 h-8 object-contain" />
                   <span className="text-sm text-green-600 font-medium">Logo ready</span>
                 </div>
               )}
@@ -104,7 +104,7 @@ export default function ManageSkills() {
             <div key={s._id} className="flex justify-between items-center p-4 border border-slate-100 rounded-xl bg-slate-50 hover:border-blue-200 transition">
               <div className="flex items-center gap-3">
                 {s.icon ? (
-                  <img src={`http://localhost:5000${s.icon}`} alt={s.name} className="w-8 h-8 object-contain" />
+                  <img src={`${BACKEND_URL}${s.icon}`} alt={s.name} className="w-8 h-8 object-contain" />
                 ) : (
                   <div className="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-slate-500 text-xs font-bold">{s.name.charAt(0)}</div>
                 )}

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import api from '../../utils/api';
+import api, { BACKEND_URL } from '../../utils/api';
 import toast from 'react-hot-toast';
 import { Settings, Image as ImageIcon } from 'lucide-react';
 
@@ -55,7 +55,7 @@ export default function ManageSettings() {
           <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 pb-8 border-b border-slate-100">
             <div className="w-32 h-32 rounded-full bg-slate-50 overflow-hidden border-4 border-white shadow-lg shrink-0 flex items-center justify-center">
               {formData.profileImage ? (
-                <img src={`http://localhost:5000${formData.profileImage}`} alt="Profile" className="w-full h-full object-cover" />
+                <img src={`${BACKEND_URL}${formData.profileImage}`} alt="Profile" className="w-full h-full object-cover" />
               ) : (
                 <ImageIcon size={40} className="text-slate-300" />
               )}
