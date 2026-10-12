@@ -3,14 +3,11 @@ import Navbar from '../components/Navbar';
 
 export default function PublicLayout() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-slate-900">
       <Navbar />
-      <main className="flex-grow pt-16">
+      <main className="flex-grow">
         <Outlet />
       </main>
-      <footer className="bg-slate-900 text-slate-300 py-8 text-center">
-        <p>&copy; {new Date().getFullYear()} Zaheer Ahmed. All rights reserved.</p>
-      </footer>
     </div>
-  )
+  );
 }

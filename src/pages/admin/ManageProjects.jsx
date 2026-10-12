@@ -100,8 +100,14 @@ export default function ManageProjects() {
             <div><label className="block text-sm font-medium mb-1">Live URL</label><input className="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 outline-none" value={formData.liveUrl} onChange={e => setFormData({ ...formData, liveUrl: e.target.value })} /></div>
           </div>
           <div className="flex gap-4">
-            <button type="submit" disabled={uploading} className="bg-blue-600 text-white px-4 py-2 rounded font-medium hover:bg-blue-700 disabled:opacity-50">{editId ? 'Update Project' : 'Save Project'}</button>
-            {editId && <button type="button" onClick={handleCancel} className="bg-slate-200 text-slate-700 px-4 py-2 rounded hover:bg-slate-300">Cancel</button>}
+            <button type="submit" disabled={uploading} className="bg-blue-600 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-blue-700 disabled:opacity-50 cursor-pointer shadow-sm transition">
+              {editId ? 'Update Project' : 'Save Project'}
+            </button>
+            {editId && (
+              <button type="button" onClick={handleCancel} className="bg-slate-200 text-slate-700 px-5 py-2.5 rounded-lg font-medium hover:bg-slate-300 cursor-pointer transition">
+                Cancel
+              </button>
+            )}
           </div>
         </form>
       </div>
@@ -117,8 +123,8 @@ export default function ManageProjects() {
                 <p className="text-sm text-slate-500 truncate">{p.description?.substring(0, 60)}...</p>
               </div>
               <div className="flex gap-2 shrink-0">
-                <button onClick={() => handleEdit(p)} className="text-blue-600 hover:bg-blue-50 px-3 py-1 rounded font-medium">Edit</button>
-                <button onClick={() => handleDelete(p._id)} className="text-red-600 hover:bg-red-50 px-3 py-1 rounded font-medium">Delete</button>
+                <button onClick={() => handleEdit(p)} className="text-blue-600 hover:bg-blue-50 px-3 py-1 rounded font-medium cursor-pointer transition">Edit</button>
+                <button onClick={() => handleDelete(p._id)} className="text-red-600 hover:bg-red-50 px-3 py-1 rounded font-medium cursor-pointer transition">Delete</button>
               </div>
             </div>
           ))}

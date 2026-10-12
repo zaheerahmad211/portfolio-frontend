@@ -84,8 +84,8 @@ export default function ManageEducation() {
             </div>
           </div>
           <div className="flex gap-4 mt-4">
-            <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded font-medium hover:bg-blue-700">{editId ? 'Update Education' : 'Save Education'}</button>
-            {editId && <button type="button" onClick={handleCancel} className="bg-slate-200 text-slate-700 px-4 py-2 rounded font-medium hover:bg-slate-300">Cancel</button>}
+            <button type="submit" className="bg-blue-600 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-blue-700 cursor-pointer shadow-sm transition">{editId ? 'Update Education' : 'Save Education'}</button>
+            {editId && <button type="button" onClick={handleCancel} className="bg-slate-200 text-slate-700 px-5 py-2.5 rounded-lg font-medium hover:bg-slate-300 cursor-pointer transition">Cancel</button>}
           </div>
         </form>
       </div>
@@ -103,8 +103,8 @@ export default function ManageEducation() {
                 </p>
               </div>
               <div className="flex gap-2">
-                <button onClick={() => handleEdit(c)} className="text-blue-600 hover:bg-blue-50 px-3 py-1 rounded font-medium">Edit</button>
-                <button onClick={() => handleDelete(c._id)} className="text-red-600 hover:bg-red-50 px-3 py-1 rounded font-medium">Delete</button>
+                <button onClick={() => handleEdit(c)} className="text-blue-600 hover:bg-blue-50 px-3 py-1 rounded font-medium cursor-pointer transition">Edit</button>
+                <button onClick={() => handleDelete(c._id)} className="text-red-600 hover:bg-red-50 px-3 py-1 rounded font-medium cursor-pointer transition">Delete</button>
               </div>
             </div>
           ))}

@@ -10,6 +10,7 @@ import ManageMessages from './pages/admin/ManageMessages';
 import ManageSkills from './pages/admin/ManageSkills';
 import ManageSettings from './pages/admin/ManageSettings';
 import ManageEducation from './pages/admin/ManageEducation';
+import ManageExperience from './pages/admin/ManageExperience';
 
 const PrivateRoute = ({ children }) => {
   const token = localStorage.getItem('token');
@@ -27,6 +28,7 @@ function App() {
         <Route index element={<Dashboard />} />
         <Route path="projects" element={<ManageProjects />} />
         <Route path="certifications" element={<ManageCertifications />} />
+        <Route path="experience" element={<ManageExperience />} />
         <Route path="education" element={<ManageEducation />} />
         <Route path="skills" element={<ManageSkills />} />
         <Route path="messages" element={<ManageMessages />} />

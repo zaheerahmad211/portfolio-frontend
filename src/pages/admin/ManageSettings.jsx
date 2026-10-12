@@ -117,7 +117,7 @@ export default function ManageSettings() {
           </div>
 
           <div className="pt-2">
-            <button type="submit" className="bg-blue-600 text-white px-8 py-3.5 rounded-lg font-bold hover:bg-blue-700 transition shadow-md w-full sm:w-auto">
+            <button type="submit" className="bg-blue-600 text-white px-8 py-3.5 rounded-lg font-bold hover:bg-blue-700 transition shadow-md w-full sm:w-auto cursor-pointer">
               Save Profile Changes
             </button>
           </div>

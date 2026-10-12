@@ -98,10 +98,14 @@ export default function ManageSkills() {
             </div>
           </div>
           <div className="flex gap-4 pt-2">
-            <button type="submit" disabled={uploading} className="bg-blue-600 text-white px-6 py-2.5 rounded-lg font-medium hover:bg-blue-700 transition shadow-sm disabled:opacity-50">
+            <button type="submit" disabled={uploading} className="bg-blue-600 text-white px-6 py-2.5 rounded-lg font-medium hover:bg-blue-700 transition shadow-sm disabled:opacity-50 cursor-pointer">
               {editId ? 'Update Skill' : 'Save Skill'}
             </button>
-            {editId && <button type="button" onClick={handleCancel} className="bg-slate-100 text-slate-700 px-6 py-2.5 rounded-lg font-medium hover:bg-slate-200 transition">Cancel</button>}
+            {editId && (
+              <button type="button" onClick={handleCancel} className="bg-slate-100 text-slate-700 px-6 py-2.5 rounded-lg font-medium hover:bg-slate-200 transition cursor-pointer">
+                Cancel
+              </button>
+            )}
           </div>
         </form>
       </div>
@@ -120,8 +124,8 @@ export default function ManageSkills() {
                 <h3 className="font-bold text-slate-800">{s.name}</h3>
               </div>
               <div className="flex gap-2">
-                <button onClick={() => handleEdit(s)} className="text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition" title="Edit"><Edit2 size={16} /></button>
-                <button onClick={() => handleDelete(s._id)} className="text-red-500 hover:bg-red-100 p-2 rounded-lg transition" title="Delete"><Trash2 size={16} /></button>
+                <button onClick={() => handleEdit(s)} className="text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition cursor-pointer" title="Edit"><Edit2 size={16} /></button>
+                <button onClick={() => handleDelete(s._id)} className="text-red-500 hover:bg-red-100 p-2 rounded-lg transition cursor-pointer" title="Delete"><Trash2 size={16} /></button>
               </div>
             </div>
           ))}

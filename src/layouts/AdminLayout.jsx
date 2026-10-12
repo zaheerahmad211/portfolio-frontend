@@ -1,5 +1,5 @@
 import { Outlet, Link, useNavigate } from 'react-router-dom';
-import { LayoutDashboard, LogOut, FolderKanban, Mail, Wrench, Settings, Book } from 'lucide-react';
+import { LayoutDashboard, LogOut, FolderKanban, Mail, Wrench, Settings, Book, Briefcase, Award } from 'lucide-react';
 
 export default function AdminLayout() {
   const navigate = useNavigate();
@@ -17,7 +17,8 @@ export default function AdminLayout() {
         <nav className="flex md:flex-col overflow-x-auto p-2 md:p-4 gap-2 md:gap-0 md:space-y-2">
           <Link to="/admin" className="flex items-center gap-2 p-2 hover:bg-slate-800 rounded whitespace-nowrap"><LayoutDashboard size={20} /> Dashboard</Link>
           <Link to="/admin/projects" className="flex items-center gap-2 p-2 hover:bg-slate-800 rounded whitespace-nowrap"><FolderKanban size={20} /> Projects</Link>
-          <Link to="/admin/certifications" className="flex items-center gap-2 p-2 hover:bg-slate-800 rounded whitespace-nowrap"><FolderKanban size={20} /> Certifications</Link>
+          <Link to="/admin/certifications" className="flex items-center gap-2 p-2 hover:bg-slate-800 rounded whitespace-nowrap"><Award size={20} /> Certifications</Link>
+          <Link to="/admin/experience" className="flex items-center gap-2 p-2 hover:bg-slate-800 rounded whitespace-nowrap"><Briefcase size={20} /> Experience</Link>
           <Link to="/admin/education" className="flex items-center gap-2 p-2 hover:bg-slate-800 rounded whitespace-nowrap"><Book size={20} /> Education</Link>
           <Link to="/admin/skills" className="flex items-center gap-2 p-2 hover:bg-slate-800 rounded whitespace-nowrap"><Wrench size={20} /> Skills</Link>
           <Link to="/admin/messages" className="flex items-center gap-2 p-2 hover:bg-slate-800 rounded whitespace-nowrap"><Mail size={20} /> Messages</Link>

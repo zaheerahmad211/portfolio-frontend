@@ -63,7 +63,7 @@ export default function ManageMessages() {
                   </div>
                   <button 
                     onClick={() => handleDelete(msg._id)} 
-                    className="text-red-500 hover:bg-red-100 p-2.5 rounded-lg transition-colors flex shrink-0" 
+                    className="text-red-500 hover:bg-red-100 p-2.5 rounded-lg transition-colors flex shrink-0 cursor-pointer" 
                     title="Delete Message"
                   >
                     <Trash2 size={20} />

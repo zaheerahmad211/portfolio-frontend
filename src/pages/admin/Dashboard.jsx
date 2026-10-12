@@ -1,21 +1,23 @@
 import { useEffect, useState } from 'react';
 import api from '../../utils/api';
-import { Mail, FolderKanban, Award } from 'lucide-react';
+import { Mail, FolderKanban, Award, Briefcase } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Dashboard() {
-  const [stats, setStats] = useState({ projects: 0, certifications: 0, messages: 0 });
+  const [stats, setStats] = useState({ projects: 0, certifications: 0, experience: 0, messages: 0 });
 
   useEffect(() => {
     // Quick load of data lengths for stats
     Promise.all([
       api.get('/projects'),
       api.get('/certifications'),
-      api.get('/messages', { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } })
-    ]).then(([projRes, certRes, msgRes]) => {
+      api.get('/experience').catch(() => ({ data: [] })),
+      api.get('/messages', { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }).catch(() => ({ data: [] }))
+    ]).then(([projRes, certRes, expRes, msgRes]) => {
       setStats({
         projects: projRes.data.length,
         certifications: certRes.data.length,
+        experience: expRes.data.length,
         messages: msgRes.data.length
       });
     }).catch(console.error);
@@ -24,7 +26,7 @@ export default function Dashboard() {
   return (
     <div>
       <h1 className="text-3xl font-bold mb-6">Dashboard Overview</h1>
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-4 gap-6">
         <Link to="/admin/projects" className="bg-white p-6 rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow group">
           <div className="flex justify-between items-start">
             <div>
@@ -48,6 +50,18 @@ export default function Dashboard() {
             </div>
           </div>
         </Link>
+
+        <Link to="/admin/experience" className="bg-white p-6 rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow group">
+          <div className="flex justify-between items-start">
+            <div>
+              <h3 className="text-slate-500 text-sm font-medium uppercase tracking-wider mb-2">Experience</h3>
+              <p className="text-4xl font-bold text-slate-800">{stats.experience}</p>
+            </div>
+            <div className="p-3 bg-emerald-50 text-emerald-600 rounded-lg group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+              <Briefcase size={24} />
+            </div>
+          </div>
+        </Link>
         
         <Link to="/admin/messages" className="bg-white p-6 rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow group">
           <div className="flex justify-between items-start">
@@ -62,5 +76,5 @@ export default function Dashboard() {
         </Link>
       </div>
     </div>
-  )
+  );
 }
